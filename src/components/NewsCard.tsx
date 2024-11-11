@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { TrendingUp } from 'lucide-react';
+import { ScrollArea } from '@radix-ui/react-scroll-area';
 
-// Define the type for each article
 type Article = {
   url: string;
   title: string;
@@ -29,31 +30,41 @@ export default function News() {
   }, []);
 
   return (
-    <div className='text-gray-700 space-y-3 bg-gray-100 rounded-xl pt-2 overflow-y-scroll scroll-smooth'>
-      <h4 className='font-bold text-xl px-4'>What's happening</h4>
-      {error ? (
-        <p className='text-red-500 px-4'>{error}</p>
-      ) : (
-        news.slice(0, articleNum).map((article) => (
-          <div key={article.url}>
-            <a href={article.url} target='_blank' rel='noopener noreferrer'>
-              <div className='flex items-center justify-between px-4 py-2 space-x-1 hover:bg-gray-200 transition duration-200'>
-                <div className='space-y-0.5'>
-                  <h6 className='text-sm font-bold'>{article.title}</h6>
-                  <p className='text-xs font-medium text-gray-500'>
-                    {article.source.name}
-                  </p>
-                </div>
-                <img src={article.urlToImage} width={70} className='rounded-xl' alt='news' />
-              </div>
-            </a>
-          </div>
-        ))
-      )}
+    <div className="mt-6 glass-card rounded-lg p-4 shadow-lg">
+      <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
+        <TrendingUp className="w-5 h-5 text-emerald-500" />
+        Trending Topics
+      </h2>
+      <ScrollArea className="h-[400px] overflow-y-auto pr-4 space-y-4 scrollbar-thin scrollbar-thumb-emerald-500 scrollbar-track-gray-800">
+        <div className="space-y-4">
+          {error ? (
+            <p className="text-red-500 px-4">{error}</p>
+          ) : (
+            news.slice(0, articleNum).map((article) => (
+              <a
+                key={article.url}
+                href={article.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block p-3 hover-gradient rounded-lg transition-all duration-300 cursor-pointer"
+              >
+                {/* Article image */}
+                <img
+                  src={article.urlToImage}
+                  alt={article.title}
+                  className="w-full h-36 object-cover rounded-lg mb-2"
+                />
+                <h3 className="font-medium text-gray-100">{article.title}</h3>
+                <p className="text-sm text-gray-400">{article.source.name}</p>
+              </a>
+            ))
+          )}
+        </div>
+      </ScrollArea>
       {!error && (
         <button
           onClick={() => setArticleNum(articleNum + 2)}
-          className='text-blue-300 pl-4 pb-3 hover:text-blue-400 text-sm'
+          className="text-blue-300 pl-4 pb-3 hover:text-blue-400 text-sm mt-4"
         >
           Load more
         </button>

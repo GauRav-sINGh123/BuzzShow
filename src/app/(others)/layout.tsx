@@ -30,14 +30,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="flex justify-between w-full mx-auto bg-black">
+        <div className="flex justify-between w-full mx-auto ">
           <div className="left-sidebar hidden sm:inline border-r h-screen sticky top-0">
             <LeftSidebar/>
           </div>
           <div className="main w-2xl flex-1">
           {children}
           </div>
-          <div className="right-sidebar lg:flex-col p-3 border-l h-screen border-1 hidden lg:flex w-[24rem]">
+          <div className="right-sidebar lg:flex-col p-3 h-screen border-1 hidden lg:flex w-[24rem]">
             <RightSidebar/>
           </div>
         </div>
