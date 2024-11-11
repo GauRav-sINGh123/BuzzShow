@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { TrendingUp } from 'lucide-react';
 import { ScrollArea } from '@radix-ui/react-scroll-area';
+import SkeletonCard from './SkeletonCard';
 
 type Article = {
   url: string;
@@ -16,18 +17,25 @@ export default function News() {
   const [news, setNews] = useState<Article[]>([]);
   const [articleNum, setArticleNum] = useState(3);
   const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     axios
       .get('https://saurav.tech/NewsAPI/top-headlines/category/business/in.json')
       .then((response) => {
         setNews(response.data.articles);
+        setIsLoading(false);  
       })
       .catch((err) => {
         console.error(err);
         setError('Failed to load news. Please try again later.');
+        setIsLoading(false);  
       });
   }, []);
+
+  if (isLoading) {
+    return <SkeletonCard />;
+  }
 
   return (
     <div className="mt-6 glass-card rounded-lg p-4 shadow-lg">
