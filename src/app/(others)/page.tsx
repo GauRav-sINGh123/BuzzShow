@@ -60,7 +60,7 @@ export default function Home() {
                 )}>
                   <input
                     type="file"
-                    accept="image/*"
+                    accept="image/png, image/jpeg, image/gif"
                     className="hidden"
                     onChange={handleImageUpload}
                   />

@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Define gradient colors and styles in :root */
+ 
 :root {
   --background-gradient: linear-gradient(135deg, #0a1f1c, #0f172a, #0a1f1c);
   --card-gradient: linear-gradient(145deg, rgba(15, 23, 25, 0.9), rgba(13, 25, 22, 0.7));

@@ -3,6 +3,8 @@ import localFont from "next/font/local";
 import "../globals.css";
 import LeftSidebar from "@/components/LeftSidebar";
 import RightSidebar from "@/components/RightSidebar";
+import { ClerkProvider,ClerkLoaded,ClerkLoading } from "@clerk/nextjs";
+import Loader from "@/components/Loader";
 
 const geistSans = localFont({
   src: "../fonts/GeistVF.woff",
@@ -26,10 +28,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <ClerkProvider>
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <ClerkLoading>
+         <Loader/>
+        </ClerkLoading>
+          <ClerkLoaded> 
         <div className="flex w-full mx-auto">
           {/* Left Sidebar */}
           <div className="hidden sm:block w-[18rem] h-screen sticky top-0">
@@ -46,7 +53,9 @@ export default function RootLayout({
             <RightSidebar />
           </div>
         </div>
+        </ClerkLoaded>
       </body>
     </html>
+    </ClerkProvider>
   );
 }
