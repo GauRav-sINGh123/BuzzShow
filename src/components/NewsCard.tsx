@@ -38,7 +38,7 @@ export default function News() {
   }
 
   return (
-    <div className="mt-6 glass-card rounded-lg p-4 shadow-lg">
+    <div className="mt-6 border border-emerald-800/20 bg-black/40 p-4 backdrop-blur-lg">
       <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
         <TrendingUp className="w-5 h-5 text-emerald-500" />
         Trending Topics

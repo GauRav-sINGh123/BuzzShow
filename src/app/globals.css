@@ -2,30 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
- 
 :root {
-  --background-gradient: linear-gradient(135deg, #0a1f1c, #0f172a, #0a1f1c);
+  --background-gradient: linear-gradient(135deg, black, #045941); 
   --card-gradient: linear-gradient(145deg, rgba(15, 23, 25, 0.9), rgba(13, 25, 22, 0.7));
-  --accent-gradient: linear-gradient(145deg, #059669, #10b981);
+  --accent-gradient: linear-gradient(145deg, #028b60, #07a36f);
   --hover-gradient: linear-gradient(145deg, rgba(20, 32, 30, 0.9), rgba(20, 32, 30, 0.7));
 }
 
- 
 body {
   @apply min-h-screen antialiased;
   background: var(--background-gradient);
   background-attachment: fixed;
-  color: #ffffff;  
+  color: #ffffff;
 }
 
- 
 .glass-card {
   background: var(--card-gradient);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(16, 185, 129, 0.05);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
               0 2px 4px -1px rgba(0, 0, 0, 0.06),
               inset 0 1px 0 rgba(16, 185, 129, 0.05);
+}
+
+.background-gradient {
+  background: var(--background-gradient); 
 }
 
 .accent-gradient {

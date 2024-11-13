@@ -22,7 +22,7 @@ export default function Home() {
   };
   return (
     <div>
-       <div className="glass-card rounded-lg p-4 mb-6 shadow-lg">
+       <div className="rounded-lg border border-emerald-800/20 bg-black/40 p-4 backdrop-blur-lg">
         <div className="flex gap-4">
           <RxAvatar className="w-10 h-10 ring-2 ring-emerald-500/20">
             <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=80&h=80&fit=crop" alt="User" />
@@ -67,7 +67,7 @@ export default function Home() {
                   <ImagePlus className="w-5 h-5" />
                 </label>
               </div>
-              <Button className="accent-gradient px-4 hover:opacity-90 transition-opacity border-0">
+              <Button className="accent-gradient px-8 rounded-full hover:opacity-90 transition-opacity border-0">
                 Post
               </Button>
             </div>

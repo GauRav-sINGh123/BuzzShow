@@ -39,7 +39,7 @@ export default function Sidebar() {
 
       {/* Sign Up Button */}
       <div className="mt-auto">
-        <Button className="w-full accent-gradient hover:opacity-90 transition-opacity text-white border-0">
+        <Button className="w-full accent-gradient hover:opacity-90 rounded-full transition-opacity text-white border-0">
           <LogIn className="w-4 h-4 mr-2" />
           <SignedIn>
             <SignOutButton/>
