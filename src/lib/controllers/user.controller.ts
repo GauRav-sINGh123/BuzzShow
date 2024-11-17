@@ -41,3 +41,12 @@ export const createOrUpdateUser = async (
         return null; 
     }
 };
+
+export const deltetUser=async(id:string)=>{
+    try{
+        await connectDB();
+        await User.deleteOne({clerkId:id});
+    }catch(error){
+        console.error("Error deleting user:", error);
+    }
+}
